@@ -409,7 +409,7 @@ export default function VideoMeetComponent() {
             let tracks = localVideoref.current.srcObject.getTracks()
             tracks.forEach(track => track.stop())
         } catch (e) { }
-        window.location.href = "/"
+        window.location.href = "/home"
     }
 
     let openChat = () => {
@@ -463,18 +463,15 @@ export default function VideoMeetComponent() {
 
             {askForUsername === true ?
 
-                <div>
-
-
-                    <h2>Enter into Lobby </h2>
-                    <TextField id="outlined-basic" label="Username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
-                    <Button variant="contained" onClick={connect}>Connect</Button>
-
+                <div style={{margin: "20px" }}>
+                    <h2 style={{color:"#0F52BA"}}>Enter into Lobby </h2> <br/>
+                    <TextField id="outlined-basic" label="Enter your username" value={username} onChange={e => setUsername(e.target.value)} variant="outlined" />
+                    <br/><br/>
 
                     <div>
                         <video ref={localVideoref} autoPlay muted></video>
-                    </div>
-
+                    </div><br/>
+                    <Button variant="contained" onClick={connect}>Connect</Button>
                 </div> :
 
 
@@ -501,8 +498,8 @@ export default function VideoMeetComponent() {
 
                             </div>
 
-                            <div className={styles.chattingArea}>
-                                <TextField value={message} onChange={(e) => setMessage(e.target.value)} id="outlined-basic" label="Enter Your chat" variant="outlined" />
+                            <div className={styles.chattingArea} style={{marginBottom:"10px"}}>
+                                <TextField value={message} onChange={(e) => setMessage(e.target.value)} id="outlined-basic" label="Enter Your chat" variant="outlined" style={{marginTop:"1px"}} /> &nbsp;
                                 <Button variant='contained' onClick={sendMessage}>Send</Button>
                             </div>
 
