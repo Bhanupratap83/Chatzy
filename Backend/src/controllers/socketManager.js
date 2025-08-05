@@ -43,6 +43,7 @@ export const connectToSocket = (server) => {
         })
 
         socket.on("chat-message", (data, sender) => {
+            console.log(`[Server] Message received:`, data, sender);
             const [matchingRoom, found] = Object.entries(connections)
             .reduce(([room, isFound], [roomKey, roomValue]) => {
                 if(!isFound && roomValue.includes(socket.id)){
@@ -80,7 +81,7 @@ export const connectToSocket = (server) => {
                         key = k;
                         
                         for(let a = 0; a < connections[key].length; ++a){
-                            io.to(connections[key][a]).emit('user-left', socket.io)
+                            io.to(connections[key][a]).emit('user-left', socket.id)
                         }
 
                         var index = connections[key].indexOf(socket.id);

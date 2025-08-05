@@ -31,9 +31,9 @@ const start = async () => {
     const connectionDb = await mongoose.connect('mongodb+srv://bp747444:pLA67Zjjk52Uk7IY@cluster0.rgk8nm.mongodb.net/');
     
     console.log(`Database connected: ${connectionDb.connection.host}`);
-    app.listen(8000, () => {
-        console.log('Server is running on port 8000');
+    server.listen(app.get("port"), () => {
+        console.log("LISTENIN ON PORT 8000")
     });
 }
 
-start();
+start();    

@@ -9,7 +9,7 @@ export default function LandingPage() {
         <div className="landingPageContainer">
             <nav>
                 <div className="navHeader">
-                    <h2>Chatzy</h2>
+                    <h2 style={{marginLeft:"30px"}}>Chatzy</h2>
                 </div>
                 <div className="navList">
                     <p onClick={() => {

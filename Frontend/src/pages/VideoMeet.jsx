@@ -277,16 +277,18 @@ export default function VideoMeetComponent() {
         socketRef.current = io.connect(server_url, { secure: false })
 
         socketRef.current.on('signal', gotMessageFromServer)
+        socketRef.current.on('chat-message', addMessage)
+
+        socketRef.current.on('user-left', (id) => {
+                setVideos((videos) => videos.filter((video) => video.socketId !== id))
+        })
 
         socketRef.current.on('connect', () => {
             socketRef.current.emit('join-call', window.location.href)
             socketIdRef.current = socketRef.current.id
 
-            socketRef.current.on('chat-message', addMessage)
 
-            socketRef.current.on('user-left', (id) => {
-                setVideos((videos) => videos.filter((video) => video.socketId !== id))
-            })
+            
 
             socketRef.current.on('user-joined', (id, clients) => {
                 clients.forEach((socketListId) => {
@@ -422,6 +424,7 @@ export default function VideoMeetComponent() {
     }
 
     const addMessage = (data, sender, socketIdSender) => {
+        console.log("addMessage fired:", data, sender, socketIdSender)
         setMessages((prevMessages) => [
             ...prevMessages,
             { sender: sender, data: data }
@@ -435,6 +438,13 @@ export default function VideoMeetComponent() {
 
     let sendMessage = () => {
         console.log(socketRef.current);
+
+        console.log("Sending:", message, "From:", username);
+        if (!socketRef.current) {
+            console.error("Socket not connected");
+            return;
+        }
+
         socketRef.current.emit('chat-message', message, username)
         setMessage("");
 

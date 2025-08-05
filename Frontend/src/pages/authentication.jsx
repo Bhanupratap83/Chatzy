@@ -76,7 +76,7 @@ export default function Authentication() {
                     sm={4}
                     md={7}
                     sx={{
-                        backgroundImage: 'url(https://unsplash.com/photos/a-scenic-view-of-a-town-by-the-coast-poKWpe0pQxw)',
+                        backgroundImage: 'url(https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80)',
                         backgroundRepeat: 'no-repeat',
                         backgroundColor: (t) =>
                             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -84,6 +84,15 @@ export default function Authentication() {
                         backgroundPosition: 'center',
                     }}
                 />
+
+                {/* <Grid item xs={12} sm={4} md={7}>
+                    <img
+                        src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1400&q=80"
+                        alt="Random"
+                        style={{ width: '30%', height: '100%', }}
+                    />
+                </Grid> */}
+
                 <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
                     <Box
                         sx={{
