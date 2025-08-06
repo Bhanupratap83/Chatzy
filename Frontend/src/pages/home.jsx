@@ -22,7 +22,7 @@ function HomeComponent() {
             <div className="navBar">
                 <div style={{ display: "flex", alignItems: "center" }}>
 
-                    <h1 style={{color:"blue", margin:"10px"}}>Chatzy</h1>
+                    <h1 style={{color:"blue", margin:"10px"}}>ChatZy</h1>
                 </div>
 
                 <div styles={{display: "flex", alignItems: "center"}}>

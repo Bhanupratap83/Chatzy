@@ -5,11 +5,12 @@ import { Link, useNavigate } from 'react-router-dom'
 export default function LandingPage() {
 
     const router = useNavigate();
+    
     return (
         <div className="landingPageContainer">
             <nav>
                 <div className="navHeader">
-                    <h2 style={{marginLeft:"30px"}}>Chatzy</h2>
+                    <h2 style={{marginLeft:"30px"}}>ChatZy</h2>
                 </div>
                 <div className="navList">
                     <p onClick={() => {
@@ -29,7 +30,7 @@ export default function LandingPage() {
             <div className="landingMainContainer">
                 <div>
                     <h1><span style={{color:"#FF9839"}}>Connect</span> with your loved ones</h1>
-                    <p>Cover a distance by Chatzy</p>
+                    <p>Cover a distance by ChatZy</p>
                     <div role="button">
                         <Link to={"/auth"}>Get Started &rArr;</Link>
                     </div>
